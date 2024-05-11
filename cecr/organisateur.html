@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organisation des cours - CEC Rieulay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+        .trainer-section {
+            margin-bottom: 20px;
+        }
+        ul#trainer-summary {
+            padding-left: 15px !important;
+            list-style-type: circle !important;
+        }
+        ul#trainer-summary > li {
+            list-style-type: circle !important;
+        }
+        ul#activity-summary {
+            padding-left: 15px !important;
+            list-style-type: circle !important;
+        }
+        ul#activity-summary > li {
+            list-style-type: circle !important;
+        }
+        hr {
+            width: 100%;
+            margin: 40px 0;
+        }
+        .dropdown-content {
+            max-height: 90vh !important;
+            max-width: 75vw !important;
+            overflow-y: scroll !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4 class="center-align">Organisation des cours<br>CEC Rieulay</h4>
+        <div id="trainer-activity-form"></div>
+        <hr>
+        <div>
+            <p id="trainers-prefix">Proposition de répartition des moniteurs :</p>
+            <ul id="trainers-summary"></ul>
+            <p id="activities-prefix">Répartition par cours :</p>
+            <ul id="activities-summary"></ul>
+            <p>
+                <a id="link-to-orga" href="#">Lien vers cette proposition</a>
+            </p>
+        </div>
+        <button id="shareWhatsApp" class="btn waves-effect waves-light">Envoyer via WhatsApp</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
