@@ -36,6 +36,10 @@ function base62ToBigInt(str) {
     return result;
 }
 
+function resetPage() {
+    window.location.href = window.location.origin + window.location.pathname;
+}
+
 function initTrainerActivityForm() {
     const form = document.getElementById('trainer-activity-form');
     trainers.forEach(trainer => {
