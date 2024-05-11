@@ -1,10 +1,11 @@
 const BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const trainers = [
-    'Benoit', 'Clem', 'Fred N', 'Jean Yves', 'Laura', 'Marine',
-    'Muriel', 'Olivier L', 'Olivier P', 'Pierre', 'Sylvie R', 'Virginie',
+    'Benoit', 'Clem', 'Fred N', 'Jean Yves', 'Laura', 'Marine', 'Muriel',
+    'Olivier L', 'Olivier P', 'Pierre', 'Sylvie B', 'Sylvie R', 'Virginie',
 ];
 const activities = [
     'Canicross',
+    'Agility',
     'Dog Dancing',
     'Hooper',
     'Accueil',
