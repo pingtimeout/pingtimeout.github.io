@@ -144,6 +144,7 @@ function updateRecap() {
     const currentUrl = window.location.href.split('?')[0]; // Removes any existing query parameters
     const newUrl = `${currentUrl}?orga=${encodedActivities}`;
     document.getElementById("link-to-orga").href = newUrl;
+    document.getElementById("link-to-orga").innerText = newUrl;
 }
 
 function decodeAndInitializeDropdowns() {
