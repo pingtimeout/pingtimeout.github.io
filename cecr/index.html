@@ -35,9 +35,21 @@
         ul#activity-summary > li {
             list-style-type: circle !important;
         }
+        div#trainer-activity-form {
+            padding: 0 20px;
+        }
+        a#reset-button {
+            margin: 20px auto;
+            display: block;
+            width: 10em;
+        }
+        div#summary {
+            margin: 50px 20px 0 20px;
+        }
         hr {
             width: 100%;
-            margin: 40px 0;
+            margin: 10px 0;
+            color: lightgrey;
         }
         .dropdown-content {
             max-height: 90vh !important;
@@ -49,9 +61,9 @@
 <body>
     <div class="container">
         <h4 class="center-align">Organisation des cours<br>CEC Rieulay</h4>
+        <a href="javascript:void(0);" onclick="resetPage()" id="reset-button" class="btn waves-effect waves-light">Réinitialiser</a>
         <div id="trainer-activity-form"></div>
-        <hr>
-        <div>
+        <div id="summary">
             <p id="trainers-prefix">Proposition de répartition des moniteurs :</p>
             <ul id="trainers-summary"></ul>
             <p id="activities-prefix">Répartition par cours :</p>
@@ -59,10 +71,8 @@
             <p>
                 <a id="link-to-orga" href="#"></a>
             </p>
+            <button id="shareWhatsApp" class="btn waves-effect waves-light">Envoyer via WhatsApp</button>
         </div>
-        <button id="shareWhatsApp" class="btn waves-effect waves-light">Envoyer via WhatsApp</button>
-        <hr>
-        <a href="javascript:void(0);" onclick="resetPage()" class="btn waves-effect waves-light">Tout effacer</a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
