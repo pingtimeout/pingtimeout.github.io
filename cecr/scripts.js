@@ -119,6 +119,40 @@ function encodeTrainerActivities() {
     return bigintToBase62(fullBitmask); // Convert to Base62
 }
 
+function updatePrefix() {
+  // Create a new date object for today
+  const today = new Date();
+
+  // Calculate the day of the week; 0 (Sunday) to 6 (Saturday)
+  const dayOfWeek = today.getDay();
+
+  // Calculate how many days to add to get the next Saturday
+  // If today is Saturday, get the next Saturday (i.e., add 7 days)
+  const daysUntilSaturday = (dayOfWeek === 6) ? 7 : (6 - dayOfWeek);
+
+  // Create a new Date object for the upcoming Saturday
+  const nextSaturday = new Date(today);
+  nextSaturday.setDate(today.getDate() + daysUntilSaturday);
+
+  // Format the date to "day month" in French
+  const formattedDate = nextSaturday.toLocaleDateString('fr-FR', {
+    day: 'numeric',
+    month: 'long'
+  });
+
+  // Ensure the first letter of the month is capitalized
+  let formattedDateParts = formattedDate.split(' ');
+  formattedDateParts[1] = formattedDateParts[1].charAt(0).toUpperCase() + formattedDateParts[1].slice(1);
+
+  // Check if the day part is "1", replace it with "1er"
+  if (formattedDateParts[0] === "1") {
+    formattedDateParts[0] = "1er";
+  }
+
+  const prefix = document.getElementById('trainers-prefix');
+  prefix.innerText = `Bonjour à tous, voici la proposition de répartition des moniteurs pour ce Samedi ${formattedDateParts.join(' ')}:`;
+}
+
 function updateRecap() {
     const trainerSummaryList = document.getElementById('trainers-summary');
     trainerSummaryList.innerHTML = '';
@@ -192,6 +226,7 @@ function decodeAndInitializeDropdowns() {
 
 document.addEventListener('DOMContentLoaded', function() {
     M.FormSelect.init(document.querySelectorAll('select'));
+    updatePrefix();
     initTrainerActivityForm();
     initWhatsAppShareAction();
     decodeAndInitializeDropdowns();
