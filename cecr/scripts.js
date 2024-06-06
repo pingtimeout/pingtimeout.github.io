@@ -114,7 +114,7 @@ function encodeTrainerActivities() {
             bitmask |= BigInt(activityBitmasks[activity]);
         });
         fullBitmask |= (bitmask << BigInt(shiftAmount));
-        shiftAmount += 11;
+        shiftAmount += activities.length;
     });
     return bigintToBase62(fullBitmask); // Convert to Base62
 }
@@ -210,15 +210,17 @@ function decodeAndInitializeDropdowns() {
 
     let shiftAmount = 0;
     trainers.slice().reverse().forEach(trainer => {
-        const bitmask = (fullBitmask >> BigInt(shiftAmount)) & ((BigInt(1) << BigInt(11)) - BigInt(1));
+        const bitmask = (fullBitmask >> BigInt(shiftAmount)) & ((BigInt(1) << BigInt(activities.length)) - BigInt(1));
         const selectElement = document.getElementById(trainer.toLowerCase().replace(/\s+/g, '-'));
         if (selectElement) {
             Array.from(selectElement.options).forEach(option => {
                 option.selected = (bitmask & BigInt(activityBitmasks[option.value])) !== BigInt(0);
             });
             M.FormSelect.init(selectElement);
+        } else {
+          console.error(`Unknown trainer ${trainer}`)
         }
-        shiftAmount += 11;
+        shiftAmount += activities.length;
     });
 
     updateRecap(); // Optionally update the recap to reflect these pre-set values
