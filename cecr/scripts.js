@@ -14,14 +14,14 @@ const activities = [
   'Accueil',
   'Ados 7-11 mois',
   'Ados ≥12 mois',
+  'Adultes débutants',
+  'Adultes confirmés',
   'Agility',
   'Blanc',
   'Cani-Balade',
   'Chiots ≤6 mois',
   'Dog Dancing',
   'Hooper',
-  'Orange-Vert',
-  'Rouge',
 ];
 const activityBitmasks = makeActivityBitmasks();
 
